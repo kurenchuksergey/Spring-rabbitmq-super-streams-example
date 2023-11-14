@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  #user: guest
+  #password: guest
+  rabbitmq:
+    image: rabbitmq:3.12.6-management
+    hostname: localhost
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+      - "5552:5552"
+    volumes:
+      - "./rabbitmq:/etc/rabbitmq"
+    networks:
+      - dev
+
+networks:
+  dev:
+    driver: bridge
